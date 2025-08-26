@@ -8,7 +8,7 @@ from tensorflow.keras.preprocessing import image
 # ------------------------------
 # CONFIG
 # ------------------------------
-MODEL_PATH = "models/mobilenet_model.h5"   # path to saved model
+MODEL_PATH = "models/check_model.h5"   # path to saved model
 IMG_SIZE = (224, 224)
 
 # Class labels
