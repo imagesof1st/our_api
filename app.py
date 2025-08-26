@@ -52,12 +52,10 @@ def preprocess_image(image, target_size=(224, 224)):
 # ------------------------------
 @app.route('/predict', methods=['POST'])
 def predict():
-    if 'image' not in request.files:
+    # Accept both 'image' or 'file' as the key
+    file = request.files.get('image') or request.files.get('file')
+    if file is None or file.filename == '':
         return jsonify({'success': False, 'error': 'No image uploaded'}), 400
-
-    file = request.files['image']
-    if file.filename == '':
-        return jsonify({'success': False, 'error': 'Empty filename'}), 400
 
     try:
         # Load image from file bytes
